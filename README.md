@@ -15,5 +15,5 @@ Adaptando suas recomendações ao perfil do usuário, ao clima e ao solo da regi
 * **Painel Diário e Persistência:** Carrega automaticamente os dados locais (`.csv`/`.txt`) e exibe um quadro de avisos prioritários ao iniciar.
 
 ## Equipe de Desenvolvimento
-* **Ramon Brandão** – [@ramonbrandao-24](https://github.com)
-* **Paulo Gabriel** – [@paulogabrielsg](https://github.com)
+* **Ramon Brandão** – [@ramonbrandao-24](https://github.com/ramonbrandao-24)
+* **Paulo Gabriel** – [@paulogabrielsg](https://github.com/aulogabrielsg)
