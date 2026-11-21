@@ -16,4 +16,4 @@ Adaptando suas recomendações ao perfil do usuário, ao clima e ao solo da regi
 
 ## Equipe de Desenvolvimento
 * **Ramon Brandão** – [@ramonbrandao-24](https://github.com/ramonbrandao-24)
-* **Paulo Gabriel** – [@paulogabrielsg](https://github.com/aulogabrielsg)
+* **Paulo Gabriel** – [@paulogabrielsg](https://github.com/paulogabrielsg)
