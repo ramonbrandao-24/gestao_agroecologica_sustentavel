@@ -21,5 +21,4 @@ public abstract class ZonaAgroecologica {
         }
         return (tamanhoTerreno / 100.0) * percentual;
     }
-    
 }

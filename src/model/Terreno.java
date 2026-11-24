@@ -231,4 +231,69 @@ public class Terreno {
         percentualZonas.add(ciclagemNutrientes);
         percentualZonas.add(preservacao_Biodiversidade);
     }
+
+    // Redistribuição de Zonas
+    public void redistribuirZonas(){
+        double percentualInicial = percentualTotalAceito();
+        for (int i = 0; i < percentualZonas.size(); i++){
+            if (percentualZonas.get(i) > 0.0){
+                double novoPercentual = (percentualZonas.get(i) / percentualInicial) * 100;
+                percentualZonas.set(i, novoPercentual);
+            }
+        }
+    }
+
+    // Verifica o percentual Total
+    public double percentualTotalAceito(){
+        double percentualTotal = 0;
+        for (int i = 0; i < percentualZonas.size(); i++){
+            percentualTotal += percentualZonas.get(i);
+        }
+        return percentualTotal;
+    }
+
+    // Desmarca as zonas que o usuario não quer
+    public void editarZona(String nomeZona){
+        if (nomeZona == null) return;
+
+        switch (nomeZona) {
+            case "Horta Biointensiva e Medicinal":
+                percentualZonas.set(0, 0.0);
+                break;
+            case "Sistema Agroflorestal":
+                percentualZonas.set(1, 0.0);
+                break;
+            case "Piquetes e Integração Animal":
+                percentualZonas.set(2, 0.0);
+                break;
+            case "Ciclagem de Nutrientes":
+                percentualZonas.set(3, 0.0);
+                break;
+            case "Preservação e Biodiversidade":
+                percentualZonas.set(4, 0.0);
+                break;
+        }
+    }
+
+    public void editarZona(String nomeZona, double novoPercentual){
+        if (nomeZona == null) return;
+
+        switch (nomeZona) {
+            case "Horta Biointensiva e Medicinal":
+                percentualZonas.set(0, novoPercentual);
+                break;
+            case "Sistema Agroflorestal":
+                percentualZonas.set(1, novoPercentual);
+                break;
+            case "Piquetes e Integração Animal":
+                percentualZonas.set(2, novoPercentual);
+                break;
+            case "Ciclagem de Nutrientes":
+                percentualZonas.set(3, novoPercentual);
+                break;
+            case "Preservação e Biodiversidade":
+                percentualZonas.set(4, novoPercentual);
+                break;
+        }
+    }
 }
