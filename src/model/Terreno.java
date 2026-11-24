@@ -8,10 +8,11 @@ public class Terreno {
     private String municipio;
     private double tamanhoTerreno;
     private String climaRegiao;
-    public static final String TROPICAL_SEMIARIDO = "Tropical Semiárido";
-    public static final String TROPICAL_SUBUMIDO = "Tropical Subúmido";
-    public static final String TROPICAL_UMIDO = "Tropical Úmido";
     public static final String EQUATORIAL = "Equatorial";
+    public static final String SEMIARIDO = "Semiárido";
+    public static final String TROPICAL = "Tropical";
+    public static final String TROPICAL_ALTITUDE = "Tropical de Altitude";
+    public static final String TROPICAL_ATLANTICO = "Tropical Atlântico";
     public static final String SUBTROPICAL = "Subtropical";
     
     private String tipoSolo;
@@ -168,8 +169,8 @@ public class Terreno {
 
     // Valores fixos para setClimaRegiao
     public void setClimaRegiao(String climaRegiao){
-        if (TROPICAL_SEMIARIDO.equals(climaRegiao) || TROPICAL_SUBUMIDO.equals(climaRegiao) || TROPICAL_UMIDO.equals(climaRegiao) ||
-        EQUATORIAL.equals(climaRegiao) || SUBTROPICAL.equals(climaRegiao)){
+        if (EQUATORIAL.equals(climaRegiao) || SEMIARIDO.equals(climaRegiao) || TROPICAL.equals(climaRegiao) ||
+        TROPICAL_ALTITUDE.equals(climaRegiao) || TROPICAL_ATLANTICO.equals(climaRegiao) || SUBTROPICAL.equals(climaRegiao)){
             this.climaRegiao = climaRegiao;
         }
     }
