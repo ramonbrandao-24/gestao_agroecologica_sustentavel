@@ -1,10 +1,19 @@
 package model.zonas;
 
 import model.SubZonaPlantio;
+import model.Terreno;
 
-public class ZonaHorta {
-    // 1. Horta Biointensiva e Medicinal
-    // Espaço dedicado ao cultivo intensivo de ciclo curto (verduras, temperos, plantas medicinais e PANCs) em canteiros próximos à residência. Exige irrigação frequente e manejo diário, garantindo colheitas rápidas e semanais para a mesa ou venda direta, além de aproveitar o adubo orgânico produzido na propriedade.
-
-    // Filha da zona. Guarda a lista de SubZonaPlantio destinadas a hortaliças e temperos.
+public class ZonaHorta extends ZonaAgroecologica{
+    public ZonaHorta(Terreno terreno, double tamanhoZona, double tamanhoTerreno){
+        super(
+            terreno,
+            "Horta Biointensiva e Medicinal",
+            "• O que é: Uma área de cultivo intensivo e diversificado em canteiros próximos à residência, dedicada a plantas de ciclo curto como verduras, temperos, ervas medicinais e PANCs (Plantas Alimentícias Não Convencionais).\n" +
+            "• Para que serve: Produzir alimentos frescos de colheita rápida e semanal para o consumo direto da família ou venda imediata em feiras locais.\n" +
+            "• Importância para o equilíbrio da propriedade: Aproveita ao máximo pequenos espaços e recebe o adubo orgânico e a água fértil gerados nas outras zonas, fechando o ciclo de nutrientes perto de casa.",
+            0
+        );
+    }
+    
+    // Guarda a lista de SubZonaPlantio destinadas a hortaliças e temperos.
 }

@@ -222,6 +222,11 @@ public class Terreno {
                 "5. Preservação e Biodiversidade: " + percentualZonas.get(4) + "% (" + ZonaAgroecologica.calcularAreaEmM2(percentualZonas.get(4), tamanhoTerreno) + ")";
     }
 
+    // Mostra a lista de percentuais
+    public ArrayList<Double> getListaPercentualZonas() {
+        return this.percentualZonas;
+    }
+
     // Adiciona percentual da zona
     public void adicionandoPercentualZonas( double hortaBiointensiva, double agroflorestal, double piquetesIntegraçãoAnimal, double ciclagemNutrientes, double preservacao_Biodiversidade){
         percentualZonas.clear();
