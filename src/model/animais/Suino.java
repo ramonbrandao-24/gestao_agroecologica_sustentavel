@@ -1,5 +1,13 @@
 package model.animais;
 
 public class Suino extends EspecieAnimal  {
-    // Construtor passando para o super(...): Mínimo 40 m², 20 m²/animal, exigeTanque = false e dica de piquete sombreado + esterco curtido.
+    public Suino() {
+        super(
+            "Suinos",
+            40.0,
+            20.0,
+            false,
+            "Ótimos para preparar e revirar o solo antes de novos plantios; aproveite excedentes da horta na alimentação e direcione os dejetos para biodigestores ou compostagem."
+        );
+    }
 }

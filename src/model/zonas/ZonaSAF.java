@@ -14,4 +14,6 @@ public class ZonaSAF extends ZonaAgroecologica{
         );
     }
     // Guarda a lista de SubZonaPlantio destinadas às árvores, frutíferas e roça consorciada.
+    // Consórcio de árvores frutíferas, madeireiras e lavouras (banana, mandioca, milho, feijão).
+    // É o coração sustentável da propriedade: produz a médio/longo prazo, protege o solo do sol e gera matéria orgânica através das podas.
 }

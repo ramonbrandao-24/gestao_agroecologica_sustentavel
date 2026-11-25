@@ -14,4 +14,5 @@ public class ZonaPreservacao extends ZonaAgroecologica {
         );
     }
     // Representa a área de mata nativa, corredores ecológicos ou abelhas sem ferrão.
+    // Área de mata nativa, corredores ecológicos, barreira quebra-vento ou meliponário (abelhas sem ferrão). Mantém o microclima úmido, protege o solo e atrai polinizadores e predadores naturais de pragas.
 }

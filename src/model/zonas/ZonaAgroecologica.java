@@ -45,4 +45,9 @@ public abstract class ZonaAgroecologica {
     public double getTamanhoZonaM2() {
         return tamanhoZonaM2;
     }
+
+    public String toString(int indice){
+        return (indice + 1) + ". " + tituloZona + " - " + tamanhoZonaPercentual + "% (" + tamanhoZonaM2 + "m²)\n" + descricaoZona;
+        // 1. Horta Biointensiva e Medicinal - 20% (65m²)          // Exemplo //
+    }
 }

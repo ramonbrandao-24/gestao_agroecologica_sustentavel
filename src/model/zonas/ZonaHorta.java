@@ -16,4 +16,6 @@ public class ZonaHorta extends ZonaAgroecologica{
     }
     
     // Guarda a lista de SubZonaPlantio destinadas a hortaliças e temperos.
+    // Canteiros de ciclo curto (verduras, temperos, chás e PANCs).
+    // Exige irrigação diária e fica próxima à casa; gera colheitas semanais e recebe o composto orgânico pronto.
 }

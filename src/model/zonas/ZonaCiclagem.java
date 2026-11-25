@@ -14,4 +14,6 @@ public class ZonaCiclagem extends ZonaAgroecologica{
         );
     }
     // Representa a área de compostagem e bioinsumos.
+    // Espaço para leiras de compostagem, minhocário e preparo de caldas naturais.
+    // Transforma sobras da horta, podas do SAF e esterco animal em adubo gratuito, zerando o desperdício.
 }
