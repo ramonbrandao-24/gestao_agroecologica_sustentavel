@@ -1,6 +1,8 @@
 package model.animais;
 
 public class Peixe extends EspecieAnimal {
+    // -------------------  CONSTRUTORES  -------------------
+    // Define os parâmetros técnicos para piscicultura (mínimo de 6 m² | máx. 4 peixes/m² [0,25 m²/peixe] | exige tanque)
     public Peixe() {
         super(
             "Peixe",

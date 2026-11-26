@@ -1,6 +1,8 @@
 package model.animais;
 
 public class AvesPequenas extends EspecieAnimal{
+    // -------------------  CONSTRUTORES  -------------------
+    // Define os parâmetros técnicos para codornas e pequenas aves (mínimo de 4 m² | máx. 1 ave a cada 0,5 m²)
     public AvesPequenas() {
         super(
             "Codornas / Aves Pequenas",

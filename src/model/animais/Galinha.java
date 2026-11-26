@@ -1,6 +1,8 @@
 package model.animais;
 
 public class Galinha extends EspecieAnimal {
+    // -------------------  CONSTRUTORES  -------------------
+    // Define os parâmetros técnicos para galinhas caipiras (mínimo de 15 m² | máx. 1 ave a cada 3,0 m²)
     public Galinha() {
         super(
             "Galinhas Caipiras",
