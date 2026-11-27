@@ -77,25 +77,45 @@ public class ZonaPiqueteAnimal extends ZonaAgroecologica {
 
     // -------------------  ETAPA 2: DEFINIÇÃO DAS SUB-ZONAS  -------------------
     // Valida o espaço mínimo da sub-zona escolhida pelo usuário e atualiza o lote na posição fixa
-    public String definirSubPercentualEspecie(int indice, double subPercentual){
-        if (isEspecieBloqueada(indice)) {
-            return "Ação bloqueada: esta espécie não é permitida neste terreno.";
+    public String definirSubPercentualEspecie(int indice, double subPercentual) {
+        if (indice < 0 || indice >= especieAnimaisSubZona.size()) {
+            throw new IllegalArgumentException("Índice de espécie inválido: " + indice);
+        }
+
+        if (subPercentual < 0 || subPercentual > 100) {
+            throw new IllegalArgumentException("O percentual deve estar entre 0 e 100.");
         }
 
         EspecieAnimal especie = especieAnimaisSubZona.get(indice);
-        if (subPercentual > 0 && !LoteAnimal.isEspacoSuficiente(especie, subPercentual, super.getTamanhoZonaM2())){
-            return
-                "Aviso: " + subPercentual +
-                "% (" + String.format("%.2f", super.getTamanhoZonaM2() * (subPercentual / 100.0)) +
-                " m²) é menor que o mínimo exigido de " + especie.getAreaMinimaM2() +
-                " m² para " + especie.getNomeEspecie() + ".";
+
+        if (isEspecieBloqueada(indice)) {
+            throw new IllegalStateException(
+                    especie.getNomeEspecie() + " não tem espaço suficiente na Zona de Animais (Área atual: " +
+                            String.format("%.2f", super.getTamanhoZonaM2()) + " m² | Mínimo exigido: " +
+                            String.format("%.2f", especie.getAreaMinimaM2()) + " m²).");
         }
+
+        if (subPercentual > 0 && !LoteAnimal.isEspacoSuficiente(especie, subPercentual, super.getTamanhoZonaM2())) {
+            throw new IllegalArgumentException(
+                    subPercentual + "% (" +
+                            String.format("%.2f", super.getTamanhoZonaM2() * (subPercentual / 100.0)) +
+                            " m²) é menor que o mínimo exigido de " + especie.getAreaMinimaM2() +
+                            " m² para " + especie.getNomeEspecie() + ".");
+        }
+
+        // Garante que a soma dos percentuais não ultrapasse 100%
+        double totalSemEste = getPercentualTotalAlocado() - tamanhoSubLotesFinais.get(indice).getSubPercentualZona2();
+        if (totalSemEste + subPercentual > 100) {
+            throw new IllegalArgumentException(
+                    "A soma dos percentuais ultrapassaria 100% (já alocado em outras espécies: " + totalSemEste + "%).");
+        }
+
         LoteAnimal loteAtualizado = new LoteAnimal(especie, subPercentual, super.getTamanhoZonaM2());
         tamanhoSubLotesFinais.set(indice, loteAtualizado);
-        
+
         return "OK: " + especie.getNomeEspecie() + " atualizado para " + subPercentual + "% (" +
-            String.format("%.2f", loteAtualizado.getAreaDestinadaM2()) + " m² | Máx: " +
-            loteAtualizado.getCapacidadeMaxima() + " animais).";
+                String.format("%.2f", loteAtualizado.getAreaDestinadaM2()) + " m² | Máx: " +
+                loteAtualizado.getCapacidadeMaxima() + " animais).";
     }
 
     // -------------------  VALIDAÇÃO DE LOTAÇÃO PERCENTUAL (100%)  -------------------
