@@ -1,17 +1,30 @@
 package model;
 
+import java.util.ArrayList;
+
 import model.plantas.Cultura;
 
 public class SubZonaPlantio {
     //  • Atributos:
-    // 	• nomeSubZona (String): Ex: "Canteiro 1 - Tomate" ou "Talhão 1 - Milho".
+    // 	• nomeSubZona (String): Ex: "Canteiro 1 - Tomate".
     // 	• culturaPrincipal (Cultura): A cultura base da sub-zona.
     // 	• subPercentualZona (double): Percentual da zona destinado a este canteiro/talhão.
     // 	• areaDestinadaM2 (double): Área calculada em \(\text{m}^{2}\).
     // 	• quantidadeMinimaPlantas (int): 1 se isAutofertil == true, ou 2 se isAutofertil == false.
     // 	• quantidadeAtualPlantas (int): Já inicia automaticamente com quantidadeMinimaPlantas (ou seja, inicia em 2 para polinização cruzada).
     // 	• capacidadeMaximaPlantas (int): Lotação máxima de pés da cultura principal na área.
-    // 	• culturasConsorciadas (ArrayList<Cultura>) e quantidadesConsorciadas (ArrayList<Integer>): Plantas companheiras adicionadas na entrelinha e suas quantidades (50% da densidade).
+    private String nomeSubZonaPlantasCanteiro;
+    private Cultura culturaPrincipalCanteiro;
+    private double subPercentualZonaPlantasCanteiro;
+    private double areaDestinadaZonaPlantasCanteiroM2;
+    private int quantidadeMinimaPlantasCanteiro;
+    private int quantidadeAtualPlantasCanteiro;
+    private int quantidadeMaximaPlantasCanteiro;
+
+    // culturasConsorciadas (ArrayList<Cultura>)
+    ArrayList<Cultura> culturasConsorciadasCanteiro = new ArrayList<>();
+    // quantidadesConsorciadas (ArrayList<Integer>): Plantas companheiras adicionadas na entrelinha e suas quantidades (50% da densidade).
+    
     // • Métodos:
     // 	• atualizarPercentual(double novoPercentual, double areaZonaM2): Recalcula \(\text{m}^{2}\) e lotação máxima ao editar o percentual, ajustando quantidadeAtualPlantas caso o novo espaço fique menor que a quantidade anterior.
     // 	• alterarQuantidadePlantas(int variacao): Soma ou subtrai unidades. Se tentar diminuir abaixo de 2 (quando !isAutofertil), bloqueia e emite o aviso de polinização cruzada; se tentar passar do máximo, bloqueia por falta de espaço.
