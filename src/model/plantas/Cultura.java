@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import model.Terreno;
-import model.zonas.ZonaAgroecologica;
 import model.zonas.ZonaHorta;
 import model.zonas.ZonaSAF;
 
