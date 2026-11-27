@@ -4,7 +4,7 @@ import model.SubZonaPlantio;
 import model.Terreno;
 
 public class ZonaHorta extends ZonaAgroecologica{
-    public ZonaHorta(Terreno terreno, double tamanhoZona, double tamanhoTerreno){
+    public ZonaHorta(Terreno terreno){
         super(
             terreno,
             "Horta Biointensiva e Medicinal",
