@@ -87,7 +87,6 @@ public class ZonaPiqueteAnimal extends ZonaAgroecologica {
         }
 
         EspecieAnimal especie = especieAnimaisSubZona.get(indice);
-
         if (isEspecieBloqueada(indice)) {
             throw new IllegalStateException(
                     especie.getNomeEspecie() + " não tem espaço suficiente na Zona de Animais (Área atual: " +
