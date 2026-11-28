@@ -53,30 +53,38 @@ public class Cultura { // Montamos as estruturas para criar um objeto Planta/Cul
     }
     
     // Filtra espaço mínimo, porte "GRANDE" em Jardim (<= 20m²), clima e (apenas se validarSolo == true) tipo de solo.
-    public boolean isPassaNaPreSelecao(String clima, double tamanhoHortaEmM2){
-        if (tamanhoHortaEmM2 < getAreaMinimaExigidaPorPlantaM2()){
-            return false;
-        }
+    public boolean passaNaPreSelecao(String clima, double tamanhoHortaEmM2){
+        try {
+            if (tamanhoHortaEmM2 < getAreaMinimaExigidaPorPlantaM2()) {
+                return false;
+            }
 
-        if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(clima)){
-            return false;
+            if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(clima)) {
+                return false;
+            }
+            return true;
+        }catch(NullPointerException npe){
+            return false; //terreno ou zona nulos retornam false
         }
-        return true;
     }
 
     public boolean isPassaNaPreSelecao(String clima, String solo, double tamanhoSAFEmM2){
-        if (tamanhoSAFEmM2 < getAreaMinimaExigidaPorPlantaM2()){
-            return false;
-        }
+        try {
+            if (tamanhoSAFEmM2 < getAreaMinimaExigidaPorPlantaM2()){
+                return false;
+            }
 
-        if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(clima)){
-            return false;
-        }
+            if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(clima)){
+                return false;
+            }
 
-        if (!this.solosCompativeis.isEmpty() && !this.solosCompativeis.contains(solo)){
-            return false;
+            if (!this.solosCompativeis.isEmpty() && !this.solosCompativeis.contains(solo)){
+                return false;
+            }
+            return true;
+        }catch(NullPointerException npe){
+            return false; //terreno ou zona nulos retornam false
         }
-        return true;
     }
     
     // temConflitoCom(Cultura outra): Verifica se há incompatibilidade/alelopatia entre duas culturas.

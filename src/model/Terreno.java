@@ -261,22 +261,26 @@ public class Terreno {
     public void editarZona(String nomeZona){
         if (nomeZona == null) return;
 
-        switch (nomeZona) {
-            case "Horta Biointensiva e Medicinal":
-                percentualZonas.set(0, 0.0);
-                break;
-            case "Sistema Agroflorestal":
-                percentualZonas.set(1, 0.0);
-                break;
-            case "Piquetes e Integração Animal":
-                percentualZonas.set(2, 0.0);
-                break;
-            case "Ciclagem de Nutrientes":
-                percentualZonas.set(3, 0.0);
-                break;
-            case "Preservação e Biodiversidade":
-                percentualZonas.set(4, 0.0);
-                break;
+        try {
+            switch (nomeZona) {
+                case "Horta Biointensiva e Medicinal":
+                    percentualZonas.set(0, 0.0);
+                    break;
+                case "Sistema Agroflorestal":
+                    percentualZonas.set(1, 0.0);
+                    break;
+                case "Piquetes e Integração Animal":
+                    percentualZonas.set(2, 0.0);
+                    break;
+                case "Ciclagem de Nutrientes":
+                    percentualZonas.set(3, 0.0);
+                    break;
+                case "Preservação e Biodiversidade":
+                    percentualZonas.set(4, 0.0);
+                    break;
+            }
+        }catch(IndexOutOfBoundsException iobe){
+            System.out.println("Erro: Os percentuais da zona ainda não foram definidos.");
         }
     }
 
