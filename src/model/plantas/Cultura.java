@@ -3,12 +3,9 @@ package model.plantas;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
 import model.Terreno;
-import model.zonas.ZonaHorta;
-import model.zonas.ZonaSAF;
 
-public class Cultura {
+public class Cultura { // Montamos as estruturas para criar um objeto Planta/Cultura que possa ser mapeado em ArrayList do tipo Cultura
     private String nomePlanta;
     private double tamanhoMinimoPorPlantaM2;
     private boolean isAutofertil;
@@ -56,27 +53,27 @@ public class Cultura {
     }
     
     // Filtra espaço mínimo, porte "GRANDE" em Jardim (<= 20m²), clima e (apenas se validarSolo == true) tipo de solo.
-    public boolean passaNaPreSelecao(Terreno terreno, ZonaHorta tamanhoHortaEmM2){
-        if (tamanhoHortaEmM2.getTamanhoZonaM2() < getAreaMinimaExigidaPorPlantaM2()){
+    public boolean isPassaNaPreSelecao(String clima, double tamanhoHortaEmM2){
+        if (tamanhoHortaEmM2 < getAreaMinimaExigidaPorPlantaM2()){
             return false;
         }
 
-        if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(terreno.getClimaRegiao())){
+        if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(clima)){
             return false;
         }
         return true;
     }
 
-    public boolean passaNaPreSelecao(Terreno terreno, ZonaSAF tamanhoSAFEmM2){
-        if (tamanhoSAFEmM2.getTamanhoZonaM2() < getAreaMinimaExigidaPorPlantaM2()){
+    public boolean isPassaNaPreSelecao(String clima, String solo, double tamanhoSAFEmM2){
+        if (tamanhoSAFEmM2 < getAreaMinimaExigidaPorPlantaM2()){
             return false;
         }
 
-        if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(terreno.getClimaRegiao())){
+        if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(clima)){
             return false;
         }
 
-        if (!this.solosCompativeis.isEmpty() && !this.solosCompativeis.contains(terreno.getTipoSolo())){
+        if (!this.solosCompativeis.isEmpty() && !this.solosCompativeis.contains(solo)){
             return false;
         }
         return true;

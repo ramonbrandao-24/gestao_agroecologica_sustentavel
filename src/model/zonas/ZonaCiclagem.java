@@ -3,7 +3,7 @@ package model.zonas;
 import model.Terreno;
 
 public class ZonaCiclagem extends ZonaAgroecologica{
-    public ZonaCiclagem(Terreno terreno, double tamanhoZona, double tamanhoTerreno){
+    public ZonaCiclagem(Terreno terreno){
         super(
             terreno,
             "Ciclagem de Nutriente",

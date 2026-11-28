@@ -1,14 +1,9 @@
 package model;
 
 import java.util.ArrayList;
-
-import javax.swing.JSpinner;
-import javax.swing.SpinnerNumberModel;
-
 import model.plantas.Cultura;
-import model.zonas.ZonaHorta;
-import model.zonas.ZonaSAF;
 
+// Crio objeto subZona que se acopla a caracteristicas e requisitos de uma Planta/Cultura, montando um cotivo de coperação e diverso, como os principios de Agrofloresta, Sustentabilidade
 public class SubZonaPlantio {
     private String nomeSubZonaPlantasCanteiro;
     private Cultura culturaPrincipalCanteiro;
@@ -26,7 +21,7 @@ public class SubZonaPlantio {
     public SubZonaPlantio(Cultura culturaPrincipalCanteiro, double subPercentualZonaPlantasCanteiro, double tamanhoZonaPrincipalM2){
         this.nomeSubZonaPlantasCanteiro = "Canteiro de " + culturaPrincipalCanteiro.getNomePlanta();
         this.culturaPrincipalCanteiro = culturaPrincipalCanteiro;
-        setAtualizarPercentual(subPercentualZonaPlantasCanteiro, subPercentualZonaPlantasCanteiro);
+        setAtualizarPercentual(subPercentualZonaPlantasCanteiro, tamanhoZonaPrincipalM2);
     }
 
     public void setAtualizarPercentual(double novoPercentual, double tamanhoZonaPrincipalM2){
@@ -34,7 +29,7 @@ public class SubZonaPlantio {
         this.areaDestinadaZonaPlantasCanteiroM2 = (novoPercentual / 100) * tamanhoZonaPrincipalM2;
         this.quantidadeMinimaPlantasCanteiro = this.culturaPrincipalCanteiro.isAutofertil() ? 1 : 2;
         this.quantidadeAtualPlantasCanteiro = quantidadeMinimaPlantasCanteiro;
-        this.quantidadeMaximaPlantasCanteiro = culturaPrincipalCanteiro.calcularCapacidadeMaxima(tamanhoZonaPrincipalM2);
+        this.quantidadeMaximaPlantasCanteiro = culturaPrincipalCanteiro.calcularCapacidadeMaxima(this.areaDestinadaZonaPlantasCanteiroM2);
     }
 
     public void setQuantidadeAtualPlantasCanteiro(int novaQuantidade){
@@ -47,12 +42,8 @@ public class SubZonaPlantio {
         }
     }
     // Vamos usar Numeric Stepper(JSpinner), então esse metodo vai ter sobrecarga
-    // import javax.swing.*;
-    // // Parâmetros: (valorInicial, minimo, maximo, passo)
+    // Parâmetros: (valorInicial, minimo, maximo, passo)
     // SpinnerNumberModel modelo = new SpinnerNumberModel(quantidadeAtualPlantasCanteiro, quantidadeMinimaPlantasCanteiro, quantidadeMaximaPlantasCanteiro, 1);
-    // JSpinner spinner = new JSpinner(modelo);
-    // // Para pegar o valor atual depois:
-    // int valorAtual = (int) spinner.getValue();
     
     //Bloqueia se houver conflito (temConflitoCom) ou falta de espaço mínimo; se passar, adiciona na lista de consórcios calculando 50% da densidade.
     // public void adicionarConsorciadaCanteiro (Cultura companheira){
@@ -63,7 +54,14 @@ public class SubZonaPlantio {
 
     //         culturasConsorciadasCanteiro.add(companheira);
     //         quantidadesConsorciadas.add(qtdFinal);
-    //     }
+    //     } // Tenho que validar se ele que uma cultura companheira, posso sobrecarregar a função, se ele passar um numero ao inves da cultura, quer dizer que ele não quer consorcio
+    // }
+
+    // A tela chama este método quando o usuário MARCA um Checkbox
+    // public void adicionarConsorciadaCanteiro(Cultura companheira) {
+    //     int qtdMinima = companheira.isAutofertil() ? 1 : 2;
+    //     culturasConsorciadasCanteiro.add(companheira);
+    //     quantidadesConsorciadas.add(qtdMinima); // Começa no mínimo para o JSpinner
     // }
     
     public void removerConsorcio(int indice) {
