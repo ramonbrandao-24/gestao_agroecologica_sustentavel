@@ -2,9 +2,10 @@ package model.zonas;
 
 import model.SubZonaPlantio;
 import model.Terreno;
+import model.plantas.Cultura;
 
 public class ZonaHorta extends ZonaAgroecologica{
-    public ZonaHorta(Terreno terreno, double tamanhoZona, double tamanhoTerreno){
+    public ZonaHorta(Terreno terreno){
         super(
             terreno,
             "Horta Biointensiva e Medicinal",
@@ -15,7 +16,13 @@ public class ZonaHorta extends ZonaAgroecologica{
         );
     }
     
-    // Guarda a lista de SubZonaPlantio destinadas a hortaliças e temperos.
-    // Canteiros de ciclo curto (verduras, temperos, chás e PANCs).
-    // Exige irrigação diária e fica próxima à casa; gera colheitas semanais e recebe o composto orgânico pronto.
+    // • Atributos:
+	// • culturasPermitidas (ArrayList<Cultura>): Plantas aprovadas na Etapa 1.
+	// • subZonas (ArrayList<SubZonaPlantio>): Canteiros (Horta) ou Talhões (SAF) criados.
+    // • Métodos:
+	// • filtrarPreSelecao(): Varre getCatalogoHorta() (passando validarSolo = false) ou getCatalogoSAF() (passando validarSolo = true) e preenche culturasPermitidas.
+	// • adicionarSubZona(Cultura cultura, double percentual): Cria a SubZonaPlantio, valida isEspacoSuficiente() e retorna as sugestões de plantasAmigas.
+	// • editarSubZona(int indice, double novoPercentual) e removerSubZona(int indice): Permitem editar o planejamento a qualquer momento.
+	// • getPercentualTotalAlocado() e isZona100PorCentoPreenchida(): Garantem a trava de 100%.
+
 }
