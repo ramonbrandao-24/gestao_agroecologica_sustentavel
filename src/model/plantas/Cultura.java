@@ -62,10 +62,13 @@ public class Cultura {
                 return false;
             }
 
-        if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(terreno.getClimaRegiao())){
-            return false;
+            if (!this.climasCompativeis.isEmpty() && !this.climasCompativeis.contains(terreno.getClimaRegiao())) {
+                return false;
+            }
+            return true;
+        }catch(NullPointerException npe){
+            return false; //terreno ou zona nulos retornam false
         }
-        return true;
     }
 
     public boolean passaNaPreSelecao(Terreno terreno, ZonaSAF tamanhoSAFEmM2){
