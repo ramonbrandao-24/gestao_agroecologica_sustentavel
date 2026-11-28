@@ -26,7 +26,7 @@ public class ZonaSAF extends ZonaAgroecologica{
         culturasPermitidasEmSAF.clear();
 
         for (Cultura cultura : Cultura.getCatalogoSAF()){
-            if (cultura.isPassaNaPreSelecao(terreno.getClimaRegiao(), super.getTamanhoZonaM2())){
+            if (cultura.isPassaNaPreSelecao(terreno.getClimaRegiao(), terreno.getTipoSolo(), super.getTamanhoZonaM2())){
                 culturasPermitidasEmSAF.add(cultura);
             }
         }
